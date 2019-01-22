@@ -1,4 +1,4 @@
-	source https://rubygems.org 
+	source "https://rubygems.org"
  
 		ruby '2.5.1' 
 
@@ -14,6 +14,7 @@
 
 		gem 'watir' 
 
-		gem 'time' 
-
 		gem 'launchy' 
+		gem 'json'
+		#gem 'google_drive'
+		gem 'csv'
