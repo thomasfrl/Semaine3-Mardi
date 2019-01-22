@@ -51,7 +51,8 @@ class TownHall
 		@hash_townhall.each do |name_town,email_town| 
 			array_townhall << [name_town, email_town]
 		end
-		CSV.open("db/email.scv","w+") do |csv|
+
+		CSV.open("db/email.csv","w+") do |csv|
 			csv << ["city","email"]
 		  array_townhall.each do |a|
 		  	csv << a
