@@ -52,9 +52,27 @@ class TownHall
 			array_townhall << [name_town, email_town]
 		end
 		CSV.open("db/email.scv","w+") do |csv|
+			csv << ["city","email"]
 		  array_townhall.each do |a|
 		  	csv << a
 		  end
 		end
+	end
+
+	def save_as_spreadsheet
+		array_townhall = []
+		@hash_townhall.each do |name_town,email_town| 
+			array_townhall << [name_town, email_town]
+		end
+
+		session = GoogleDrive::Session.from_config("config.JSON")
+		spread_sheet = session.create_spreadsheet("liste email des mairies")
+		ws = spread_sheet.worksheets[0]
+
+		array_townhall.each_with_index do |townhall,i|
+			ws[i+1,1] = townhall[0]
+			ws[i+1,2] = townhall[1]
+		end	
+		ws.save
 	end
 end

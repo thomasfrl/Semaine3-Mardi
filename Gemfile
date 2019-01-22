@@ -16,5 +16,5 @@
 
 		gem 'launchy' 
 		gem 'json'
-		#gem 'google_drive'
+		gem 'google_drive'
 		gem 'csv'
