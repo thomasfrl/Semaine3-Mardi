@@ -47,8 +47,8 @@ class TownHall
 
 	def save_as_JSON
 	#enregistre l'instance de classe en format Json
-		File.open("db/email.JSON","w+") do |line|
-		  line.write(@hash_townhall.to_json)
+		File.open("db/email.JSON","w+") do |file|
+		  file.write(JSON.pretty_generate(@hash_townhall))
 		end
 	end
 
